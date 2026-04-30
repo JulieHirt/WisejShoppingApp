@@ -2,9 +2,9 @@
 
 namespace ShoppingApp
 {
-    public partial class Page1 : Page
+    public partial class PageView : Page
     {
-        public Page1()
+        public PageView()
         {
             InitializeComponent();
 

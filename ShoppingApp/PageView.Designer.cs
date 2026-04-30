@@ -1,6 +1,6 @@
 ﻿namespace ShoppingApp
 {
-    partial class Page1
+    partial class PageView
     {
         /// <summary>
         /// Required designer variable.
