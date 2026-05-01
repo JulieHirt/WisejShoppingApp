@@ -16,6 +16,7 @@ namespace ShoppingApp
 
             dataRepeater1.DataSource = viewModel.Products;
             dataGridView1.DataSource = viewModel.Cart;
+            viewModel.Load();
         }
 
         private void PageView_Load(object sender, System.EventArgs e)

@@ -34,7 +34,7 @@ namespace ShoppingApp.ViewModel
             foreach (var product in storeRepository.GetProducts())
                 Products.Add(product);
             foreach (var product in cartRepository.GetProducts())
-                Products.Add(product);
+                Cart.Add(product);
         }
 
         public ShoppingViewModel(IStoreRepository storeRepository, ICartRepository cartRepository)
