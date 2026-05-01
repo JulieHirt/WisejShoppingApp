@@ -44,11 +44,11 @@ namespace ShoppingApp
         //fired when a new item is created in a datarepeater
         private void dataRepeater1_ItemCloned(object sender, DataRepeaterItemEventArgs e)
         {
-            //if (e.DataRepeaterItem.Controls["buttonAddToCart"] is Button button)
-            //{
-            //    button.Click -= buttonAddToCart_Click;
-            //    button.Click += buttonAddToCart_Click;
-            //}
+            if (e.DataRepeaterItem.Controls["buttonAddToCart"] is Button button)
+            {
+                button.Click -= buttonAddToCart_Click;
+                button.Click += buttonAddToCart_Click;
+            }
         }
 
         private void buttonAddToCart_Click(object sender, System.EventArgs e)
