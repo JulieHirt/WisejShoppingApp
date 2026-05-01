@@ -52,6 +52,18 @@ namespace ShoppingApp.ViewModel
         private void AddToCart()
         {
             AlertBox.Show("Added To Cart");
+            if (SelectedProduct == null)
+            {
+                return;
+            }
+
+            var productToMove = SelectedProduct;
+
+            storeRepository.RemoveProduct(productToMove.Id);
+            cartRepository.AddProduct(productToMove);
+
+            Products.Remove(productToMove);
+            Cart.Add(productToMove);
         }
 
         private void OnPropertyChanged(string name)
