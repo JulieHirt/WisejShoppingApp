@@ -8,6 +8,7 @@ namespace ShoppingApp
     public partial class PageView : Page
     {
         BindingList<Product> storeStockList;
+        BindingList<Product> cartList;
         Command AddToCartCommand;
         public PageView()
         {
@@ -33,6 +34,13 @@ namespace ShoppingApp
             labelPrice.DataBindings.Add("Text", dataRepeater1.DataSource, "Price");
             pictureBox1.DataBindings.Add("Image", dataRepeater1.DataSource, "Image");
             buttonAddToCart.Command = AddToCartCommand;
+
+
+            cartList = new BindingList<Product>();
+            Image apple1 = Image.FromFile(Application.MapPath("Images/apple.png"));
+            cartList.Add(new Product(1, "apple", apple1, 1.99m));
+
+            dataGridView1.DataSource = cartList;
 
         }
 
