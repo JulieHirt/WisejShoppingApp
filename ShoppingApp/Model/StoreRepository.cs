@@ -26,8 +26,8 @@ namespace ShoppingApp.Model
             storeStockList = new List<Product>()
             {
                 new Product(1, "apple", apple, 1.99m),
-                new Product(1, "banana", banana, .40m),
-                new Product(1, "orange", orange, 2.80m)
+                new Product(2, "banana", banana, .40m),
+                new Product(3, "orange", orange, 2.80m)
             };
         }
 
