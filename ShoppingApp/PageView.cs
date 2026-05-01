@@ -8,10 +8,11 @@ namespace ShoppingApp
     public partial class PageView : Page
     {
         BindingList<Product> storeStockList;
+        Command AddToCartCommand;
         public PageView()
         {
             InitializeComponent();
-
+            AddToCartCommand = new Command(() => { AlertBox.Show("Added To Cart"); }, () => { return true; });
         }
 
         private void PageView_Load(object sender, System.EventArgs e)
@@ -26,13 +27,16 @@ namespace ShoppingApp
             Image orange = Image.FromFile(Application.MapPath("Images/orange.png"));
             storeStockList.Add(new Product(1, "orange", orange, 2.80m));
 
-
             dataRepeater1.DataSource = storeStockList;
 
-            dataRepeater1.ItemTemplate.Controls["labelName"]
-    .DataBindings.Add("Text", null, "Name");
-
+            labelName.DataBindings.Add("Text", dataRepeater1.DataSource, "Name");
+            labelPrice.DataBindings.Add("Text", dataRepeater1.DataSource, "Price");
+            pictureBox1.DataBindings.Add("Image", dataRepeater1.DataSource, "Image");
+            buttonAddToCart.Command = AddToCartCommand;
 
         }
+
+        
+
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.dataRepeater1 = new Wisej.Web.DataRepeater();
+            this.labelPrice = new Wisej.Web.Label();
+            this.labelName = new Wisej.Web.Label();
             this.buttonAddToCart = new Wisej.Web.Button();
             this.pictureBox1 = new Wisej.Web.PictureBox();
             this.dataGridView1 = new Wisej.Web.DataGridView();
             this.buttonCheckout = new Wisej.Web.Button();
-            this.labelName = new Wisej.Web.Label();
-            this.labelPrice = new Wisej.Web.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataRepeater1)).BeginInit();
             this.dataRepeater1.ItemTemplate.SuspendLayout();
             this.dataRepeater1.SuspendLayout();
@@ -59,6 +59,24 @@
             this.dataRepeater1.TabIndex = 0;
             this.dataRepeater1.Text = "dataRepeater1";
             // 
+            // labelPrice
+            // 
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Location = new System.Drawing.Point(3, 56);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(60, 18);
+            this.labelPrice.TabIndex = 5;
+            this.labelPrice.Text = "labelPrice";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(3, 12);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(66, 18);
+            this.labelName.TabIndex = 4;
+            this.labelName.Text = "labelName";
+            // 
             // buttonAddToCart
             // 
             this.buttonAddToCart.Location = new System.Drawing.Point(257, 34);
@@ -72,6 +90,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(136, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 75);
+            this.pictureBox1.SizeMode = Wisej.Web.PictureBoxSizeMode.Zoom;
             // 
             // dataGridView1
             // 
@@ -88,24 +107,6 @@
             this.buttonCheckout.TabIndex = 2;
             this.buttonCheckout.Text = "Checkout";
             // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(3, 12);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(66, 18);
-            this.labelName.TabIndex = 4;
-            this.labelName.Text = "labelName";
-            // 
-            // labelPrice
-            // 
-            this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(3, 56);
-            this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(60, 18);
-            this.labelPrice.TabIndex = 5;
-            this.labelPrice.Text = "labelPrice";
-            // 
             // PageView
             // 
             this.Controls.Add(this.buttonCheckout);
@@ -113,6 +114,7 @@
             this.Controls.Add(this.dataRepeater1);
             this.Name = "PageView";
             this.Size = new System.Drawing.Size(1284, 388);
+            this.Load += new System.EventHandler(this.PageView_Load);
             this.dataRepeater1.ItemTemplate.ResumeLayout(false);
             this.dataRepeater1.ItemTemplate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRepeater1)).EndInit();
