@@ -35,6 +35,6 @@ namespace ShoppingApp.Model
             if (product != null)
                 cartList.Remove(product);
         }
-    }
+    
     }
 }
