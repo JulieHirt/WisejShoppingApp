@@ -10,7 +10,7 @@ namespace ShoppingApp.Model
         void AddProduct(Product product);
         void RemoveProduct(int productId);
     }
-    public class CartRepository
+    public class CartRepository: ICartRepository
     {
          private readonly List<Product> cartList;
         public CartRepository()
