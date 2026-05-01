@@ -1,4 +1,5 @@
 ﻿using ShoppingApp.Model;
+using ShoppingApp.ViewModel;
 using System.ComponentModel;
 using System.Drawing;
 using Wisej.Web;
@@ -7,32 +8,25 @@ namespace ShoppingApp
 {
     public partial class PageView : Page
     {
-        BindingList<Product> storeStockList;
-        BindingList<Product> cartList;
-        Command AddToCartCommand;
+        private readonly ShoppingViewModel viewModel;
         public PageView()
         {
             InitializeComponent();
-            AddToCartCommand = new Command(() => { AlertBox.Show("Added To Cart"); }, () => { return true; });
+            viewModel = new ShoppingViewModel(new StoreRepository(), new CartRepository());
+
+            dataRepeater1.DataSource = viewModel.Products;
+            dataGridView1.DataSource = viewModel.Cart;
         }
 
         private void PageView_Load(object sender, System.EventArgs e)
         {
             
 
-            dataRepeater1.DataSource = storeStockList;
 
             labelName.DataBindings.Add("Text", dataRepeater1.DataSource, "Name");
             labelPrice.DataBindings.Add("Text", dataRepeater1.DataSource, "Price");
             pictureBox1.DataBindings.Add("Image", dataRepeater1.DataSource, "Image");
-            buttonAddToCart.Command = AddToCartCommand;
-
-
-            cartList = new BindingList<Product>();
-            Image apple1 = Image.FromFile(Application.MapPath("Images/apple.png"));
-            cartList.Add(new Product(1, "apple", apple1, 1.99m));
-
-            dataGridView1.DataSource = cartList;
+            buttonAddToCart.Command = viewModel.AddToCartCommand;
 
         }
 
