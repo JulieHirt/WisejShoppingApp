@@ -39,5 +39,34 @@ namespace ShoppingApp
                 viewModel.SelectedProduct = viewModel.Products[index];
             }
         }
+
+
+        //fired when a new item is created in a datarepeater
+        private void dataRepeater1_ItemCloned(object sender, DataRepeaterItemEventArgs e)
+        {
+            //if (e.DataRepeaterItem.Controls["buttonAddToCart"] is Button button)
+            //{
+            //    button.Click -= buttonAddToCart_Click;
+            //    button.Click += buttonAddToCart_Click;
+            //}
+        }
+
+        private void buttonAddToCart_Click(object sender, System.EventArgs e)
+        {
+            if (sender is not Control control || control.Parent is not DataRepeaterItem item)
+            {
+                return;
+            }
+
+            int index = item.ItemIndex;
+            if (index >= 0 && index < viewModel.Products.Count)
+            {
+                viewModel.SelectedProduct = viewModel.Products[index];
+            }
+            else
+            {
+                viewModel.SelectedProduct = null;
+            }
+        }
     }
 }
