@@ -31,7 +31,13 @@ namespace ShoppingApp
 
         }
 
-        
-
+        private void dataRepeater1_CurrentItemIndexChanged(object sender, System.EventArgs e)
+        {
+            int index = dataRepeater1.CurrentItemIndex;
+            if (index >= 0 && index < viewModel.Products.Count)
+            {
+                viewModel.SelectedProduct = viewModel.Products[index];
+            }
+        }
     }
 }

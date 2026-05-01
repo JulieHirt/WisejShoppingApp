@@ -58,6 +58,7 @@
             this.dataRepeater1.Size = new System.Drawing.Size(397, 311);
             this.dataRepeater1.TabIndex = 0;
             this.dataRepeater1.Text = "dataRepeater1";
+            this.dataRepeater1.CurrentItemIndexChanged += new System.EventHandler(this.dataRepeater1_CurrentItemIndexChanged);
             // 
             // labelPrice
             // 
