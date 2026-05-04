@@ -1,5 +1,6 @@
 ﻿using ShoppingApp.Model;
 using System.ComponentModel;
+using System.Linq;
 using Wisej.Web;
 
 namespace ShoppingApp.ViewModel
@@ -60,8 +61,12 @@ namespace ShoppingApp.ViewModel
 
         private void Checkout()
         {
-            int total = 5;
-            MessageBox.Show("Your total is" + total);
+           decimal total = Cart.Sum(p => p.Price);
+           MessageBox.Show("Your total is: " + total);
+
+            //Empty cart
+            Cart.Clear(); //UI
+            cartRepository.ClearProducts(); //database
         }
         private void AddToCart()
         {

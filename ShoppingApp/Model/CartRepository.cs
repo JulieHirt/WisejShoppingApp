@@ -9,6 +9,7 @@ namespace ShoppingApp.Model
         IList<Product> GetProducts();
         void AddProduct(Product product);
         void RemoveProduct(int productId);
+        void ClearProducts();
     }
     public class CartRepository: ICartRepository
     {
@@ -34,6 +35,11 @@ namespace ShoppingApp.Model
 
             if (product != null)
                 cartList.Remove(product);
+        }
+
+        public void ClearProducts()
+        {
+            cartList.Clear();
         }
     
     }
