@@ -31,11 +31,13 @@ namespace ShoppingApp.ViewModel
         public void Load()
         {
             Products.Clear();
+            Cart.Clear();
 
             foreach (var product in storeRepository.GetProducts())
                 Products.Add(product);
             foreach (var product in cartRepository.GetProducts())
                 Cart.Add(product);
+            CheckoutCommand.RaiseCanExecuteChanged();
         }
 
         public ShoppingViewModel(IStoreRepository storeRepository, ICartRepository cartRepository)
@@ -73,6 +75,7 @@ namespace ShoppingApp.ViewModel
 
             storeRepository.RemoveProduct(productToMove.Id);
             cartRepository.AddProduct(productToMove);
+            CheckoutCommand.RaiseCanExecuteChanged();
 
             Products.Remove(productToMove);
             Cart.Add(productToMove);
