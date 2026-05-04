@@ -28,6 +28,7 @@ namespace ShoppingApp
             labelPrice.DataBindings.Add("Text", dataRepeater1.DataSource, "Price");
             pictureBox1.DataBindings.Add("Image", dataRepeater1.DataSource, "Image");
             buttonAddToCart.Command = viewModel.AddToCartCommand;
+            buttonCheckout.Command = viewModel.CheckoutCommand;
 
         }
 

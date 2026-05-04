@@ -14,6 +14,7 @@ namespace ShoppingApp.ViewModel
         public BindingList<Product> Cart { get; } = new();
 
         public Command AddToCartCommand { get; }
+        public Command CheckoutCommand { get; }
 
         private Product _selectedProduct;
         public Product SelectedProduct
@@ -47,8 +48,19 @@ namespace ShoppingApp.ViewModel
                 execute: () => AddToCart(),
                 canExecute: () => SelectedProduct != null
             );
+
+        CheckoutCommand = new Command(
+                 execute: () => Checkout(),
+                 canExecute: () => cartRepository.GetProducts().Count > 0
+
+             );
         }
 
+        private void Checkout()
+        {
+            int total = 5;
+            MessageBox.Show("Your total is" + total);
+        }
         private void AddToCart()
         {
             AlertBox.Show("Added To Cart");
