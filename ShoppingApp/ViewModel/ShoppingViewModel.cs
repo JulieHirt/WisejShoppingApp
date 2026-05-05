@@ -29,18 +29,6 @@ namespace ShoppingApp.ViewModel
             }
         }
 
-        public void Load()
-        {
-            Products.Clear();
-            Cart.Clear();
-
-            foreach (var product in storeRepository.GetProducts())
-                Products.Add(product);
-            foreach (var product in cartRepository.GetProducts())
-                Cart.Add(product);
-            CheckoutCommand.RaiseCanExecuteChanged();
-        }
-
         public ShoppingViewModel(IStoreRepository storeRepository, ICartRepository cartRepository)
         {
             this.storeRepository = storeRepository;
@@ -57,6 +45,18 @@ namespace ShoppingApp.ViewModel
                  canExecute: () => cartRepository.GetProducts().Count > 0
 
              );
+        }
+
+        public void Load()
+        {
+            Products.Clear();
+            Cart.Clear();
+
+            foreach (var product in storeRepository.GetProducts())
+                Products.Add(product);
+            foreach (var product in cartRepository.GetProducts())
+                Cart.Add(product);
+            CheckoutCommand.RaiseCanExecuteChanged();
         }
 
         private void Checkout()
