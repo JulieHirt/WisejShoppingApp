@@ -35,6 +35,8 @@
             this.pictureBox1 = new Wisej.Web.PictureBox();
             this.dataGridView1 = new Wisej.Web.DataGridView();
             this.buttonCheckout = new Wisej.Web.Button();
+            this.label1 = new Wisej.Web.Label();
+            this.label2 = new Wisej.Web.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataRepeater1)).BeginInit();
             this.dataRepeater1.ItemTemplate.SuspendLayout();
             this.dataRepeater1.SuspendLayout();
@@ -109,13 +111,33 @@
             this.buttonCheckout.TabIndex = 2;
             this.buttonCheckout.Text = "Checkout";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(181, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 18);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Store";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(733, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 18);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Cart";
+            // 
             // PageView
             // 
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCheckout);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dataRepeater1);
             this.Name = "PageView";
-            this.Size = new System.Drawing.Size(1284, 388);
+            this.Size = new System.Drawing.Size(982, 554);
             this.Load += new System.EventHandler(this.PageView_Load);
             this.dataRepeater1.ItemTemplate.ResumeLayout(false);
             this.dataRepeater1.ItemTemplate.PerformLayout();
@@ -124,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,5 +159,7 @@
         private Wisej.Web.Button buttonAddToCart;
         private Wisej.Web.Label labelPrice;
         private Wisej.Web.Label labelName;
+        private Wisej.Web.Label label1;
+        private Wisej.Web.Label label2;
     }
 }
