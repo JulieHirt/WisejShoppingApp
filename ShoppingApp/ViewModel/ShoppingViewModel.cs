@@ -5,11 +5,10 @@ using Wisej.Web;
 
 namespace ShoppingApp.ViewModel
 {
-    public class ShoppingViewModel : INotifyPropertyChanged
+    public class ShoppingViewModel
     {
         private readonly IStoreRepository storeRepository;
         private readonly ICartRepository cartRepository;
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public BindingList<Product> Products { get; } = new();
         public BindingList<Product> Cart { get; } = new();
@@ -24,7 +23,6 @@ namespace ShoppingApp.ViewModel
             set
             {
                 _selectedProduct = value;
-                OnPropertyChanged(nameof(SelectedProduct));
                 AddToCartCommand.RaiseCanExecuteChanged();
             }
         }
@@ -87,9 +85,5 @@ namespace ShoppingApp.ViewModel
             Cart.Add(productToMove);
         }
 
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
     }
 }
