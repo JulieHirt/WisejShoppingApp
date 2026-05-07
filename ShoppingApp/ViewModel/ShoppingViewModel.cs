@@ -67,6 +67,7 @@ namespace ShoppingApp.ViewModel
             //Empty cart
             Cart.Clear(); //UI
             cartRepository.ClearProducts(); //database
+            CheckoutCommand.RaiseCanExecuteChanged();
         }
         private void AddToCart()
         {
