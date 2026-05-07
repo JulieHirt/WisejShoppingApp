@@ -45,20 +45,25 @@ namespace ShoppingApp
         //fired when a new item is created in a datarepeater
         private void dataRepeater1_ItemCloned(object sender, DataRepeaterItemEventArgs e)
         {
+            //check that buttonAddToCart is a button
             if (e.DataRepeaterItem.Controls["buttonAddToCart"] is Button button)
             {
-                button.Click -= buttonAddToCart_Click;
-                button.Click += buttonAddToCart_Click;
+                //make sure that UpdateSelectedProduct is only attached once
+                button.Click -= UpdateSelectedProduct;
+                button.Click += UpdateSelectedProduct;
             }
         }
 
-        private void buttonAddToCart_Click(object sender, System.EventArgs e)
+        private void UpdateSelectedProduct(object sender, System.EventArgs e)
         {
+            //check that the sender (the one who called this method) is a Wisej Control with a DataRepeater parent
             if (sender is not Control control || control.Parent is not DataRepeaterItem item)
             {
                 return;
             }
 
+
+            //updated SelectedProduct in the viewModel based on the selected item index in the datarepeater
             int index = item.ItemIndex;
             if (index >= 0 && index < viewModel.Products.Count)
             {
