@@ -87,6 +87,8 @@ namespace ShoppingApp.ViewModel
         }
 
         private void OnPropertyChanged(string name)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }
